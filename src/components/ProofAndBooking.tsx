@@ -107,7 +107,7 @@ export default function ProofAndBooking() {
             </p>
 
             <a 
-              href="/reservation" 
+              href="/menage/reservation" 
               className="group inline-flex items-center gap-4 text-2xl lg:text-3xl font-display font-bold text-black border-b-2 border-black pb-2 hover:text-gray-500 hover:border-gray-500 transition-colors duration-300"
             >
               Évaluer mon besoin

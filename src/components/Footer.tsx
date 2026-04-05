@@ -35,7 +35,7 @@ export default function Footer() {
             <br />
             mérite le <span className="text-quido">meilleur.</span>
           </h2>
-          <a href="/reservation" className="btn-primary-dark">
+          <a href="/menage/reservation" className="btn-primary-dark">
             Réserver un créneau
             <ArrowRight size={16} />
           </a>

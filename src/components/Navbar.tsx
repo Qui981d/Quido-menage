@@ -66,7 +66,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="/reservation"
+              href="/menage/reservation"
               className="group inline-flex items-center gap-2 rounded-full bg-quido px-6 py-2.5 text-[13.5px] font-semibold text-white font-display hover:bg-quido-dark hover:scale-[1.03] transition-all duration-300"
             >
               Réserver
@@ -108,7 +108,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="/reservation"
+                href="/menage/reservation"
                 onClick={() => setMobileOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

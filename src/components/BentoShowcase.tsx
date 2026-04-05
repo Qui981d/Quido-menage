@@ -174,7 +174,7 @@ export default function BentoShowcase() {
                       </ul>
 
                       <a 
-                        href="/reservation" 
+                        href="/menage/reservation" 
                         className="group/btn inline-flex items-center gap-3 bg-black text-white px-6 py-3.5 rounded-xl font-bold hover:bg-gray-800 transition-colors"
                       >
                         Réserver mon ménage

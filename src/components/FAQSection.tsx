@@ -54,7 +54,7 @@ export default function FAQSection() {
               </p>
               <h2
                 className="font-display font-bold tracking-[-0.04em] text-black leading-[0.98] mb-6"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3.2rem)" }}
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4.5rem)" }}
               >
                 Des <span className="relative inline-block z-10 text-black">questions<span className="absolute -bottom-1 -left-2 -right-4 h-[8px] bg-quido/80 -z-10 rotate-1 origin-left"></span></span> ?
               </h2>
@@ -62,7 +62,7 @@ export default function FAQSection() {
                 Les réponses aux questions les plus fréquentes de nos clients.
               </p>
               <a
-                href="/reservation"
+                href="/menage/reservation"
                 className="group inline-flex items-center gap-2 text-[14px] font-bold text-black border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors font-display w-fit"
               >
                 Réserver maintenant

@@ -80,7 +80,7 @@ export default function ReservationFunnel() {
           <p className="text-gray-500 mb-8">
             Merci {formData.firstName} ! Nous avons bien reçu votre demande concernant votre logement de {formData.areaSize}m². Notre équipe va vous contacter rapidement.
           </p>
-          <a href="/" className="bg-black text-white px-6 py-4 rounded-xl font-bold inline-block w-full hover:bg-gray-800 transition-colors">
+          <a href="/menage/" className="bg-black text-white px-6 py-4 rounded-xl font-bold inline-block w-full hover:bg-gray-800 transition-colors">
             Retour à l'accueil
           </a>
         </div>
@@ -92,10 +92,10 @@ export default function ReservationFunnel() {
     <div className="min-h-screen bg-white">
       {/* Mini Header */}
       <header className="border-b border-gray-100 py-6 px-8 flex justify-between items-center">
-        <a href="/" className="flex items-center">
+        <a href="/menage/" className="flex items-center">
           <Image src="/menage/images/logo/Votre texte de paragraphe.png" alt="Quido" width={180} height={58} className="h-12 lg:h-14 w-auto" />
         </a>
-        <a href="/" className="text-sm font-medium text-gray-400 hover:text-black transition-colors">
+        <a href="/menage/" className="text-sm font-medium text-gray-400 hover:text-black transition-colors">
           Annuler
         </a>
       </header>
