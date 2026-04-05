@@ -80,7 +80,7 @@ export default function AboutLocalSection() {
             >
               <div className="relative w-full h-full overflow-hidden rounded-xl">
                 <Image 
-                  src="/images/about-quido.jpg" 
+                  src="/menage/images/about-quido.jpg" 
                   alt="L'équipe de professionnels Quido dans le Pays de Gex"
                   fill
                   className="object-cover"

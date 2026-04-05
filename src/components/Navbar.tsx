@@ -43,7 +43,7 @@ export default function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1 lg:px-8">
           <a href="#" className="flex items-center group">
             <Image
-              src="/images/logo/Votre texte de paragraphe.png"
+              src="/menage/images/logo/Votre texte de paragraphe.png"
               alt="Quido"
               width={260}
               height={90}

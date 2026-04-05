@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           <div>
             <Image
-              src="/images/logo/logo-footer-green.png"
+              src="/menage/images/logo/logo-footer-green.png"
               alt="Quido"
               width={260}
               height={90}

@@ -126,14 +126,14 @@ export default function HeroSection() {
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="relative rounded-full rounded-bl-[32px] overflow-hidden aspect-[3/4]">
-                <Image src="/images/hero-living-room.png" alt="Salon parfaitement nettoyé" fill className="object-cover" />
+                <Image src="/menage/images/hero-living-room.png" alt="Salon parfaitement nettoyé" fill className="object-cover" />
               </div>
               <div className="flex flex-col gap-4 pt-12">
                 <div className="relative rounded-[32px] overflow-hidden aspect-square">
-                  <Image src="/images/kitchen-premium.png" alt="Cuisine impeccable" fill className="object-cover" />
+                  <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable" fill className="object-cover" />
                 </div>
                 <div className="relative rounded-full rounded-tr-[32px] overflow-hidden aspect-[4/3]">
-                  <Image src="/images/eco-products.png" alt="Produits éco-responsables" fill className="object-cover" />
+                  <Image src="/menage/images/eco-products.png" alt="Produits éco-responsables" fill className="object-cover" />
                 </div>
               </div>
             </div>

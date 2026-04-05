@@ -78,7 +78,7 @@ export default function BentoShowcase() {
         >
           <div className="aspect-[21/9] sm:aspect-[2.5/1] relative">
             <Image
-              src="/images/hero-living-room.png"
+              src="/menage/images/hero-living-room.png"
               alt="Intérieur parfaitement nettoyé"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-[1.2s]"
@@ -196,7 +196,7 @@ export default function BentoShowcase() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="relative rounded-[16px] overflow-hidden aspect-[4/3] group"
           >
-            <Image src="/images/kitchen-premium.png" alt="Cuisine impeccable" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+            <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
             <div className="absolute bottom-5 left-5">
               <p className="text-white text-sm font-semibold font-display">Cuisines impeccables</p>
@@ -209,7 +209,7 @@ export default function BentoShowcase() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="relative rounded-[16px] overflow-hidden aspect-[4/3] group"
           >
-            <Image src="/images/bathroom-premium.png" alt="Salle de bain immaculée" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+            <Image src="/menage/images/bathroom-premium.png" alt="Salle de bain immaculée" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
             <div className="absolute bottom-5 left-5">
               <p className="text-white text-sm font-semibold font-display">Salles de bain</p>
@@ -222,7 +222,7 @@ export default function BentoShowcase() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="relative rounded-[16px] overflow-hidden aspect-[4/3] group col-span-2 lg:col-span-1"
           >
-            <Image src="/images/eco-products.png" alt="Produits éco-responsables" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+            <Image src="/menage/images/eco-products.png" alt="Produits éco-responsables" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-5 left-5">
               <p className="text-white text-sm font-semibold font-display">100% éco-responsable</p>

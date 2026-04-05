@@ -93,7 +93,7 @@ export default function ReservationFunnel() {
       {/* Mini Header */}
       <header className="border-b border-gray-100 py-6 px-8 flex justify-between items-center">
         <a href="/" className="flex items-center">
-          <Image src="/images/logo/Votre texte de paragraphe.png" alt="Quido" width={180} height={58} className="h-12 lg:h-14 w-auto" />
+          <Image src="/menage/images/logo/Votre texte de paragraphe.png" alt="Quido" width={180} height={58} className="h-12 lg:h-14 w-auto" />
         </a>
         <a href="/" className="text-sm font-medium text-gray-400 hover:text-black transition-colors">
           Annuler
