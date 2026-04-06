@@ -19,9 +19,9 @@ export default function Footer() {
               <Image
                 src="/menage/images/logo/logo-footer-green.png"
                 alt="Quido - Service de ménage premium au Pays de Gex"
-                width={140}
-                height={50}
-                className="h-10 w-auto"
+                width={260}
+                height={90}
+                className="h-10 md:h-14 w-auto"
               />
             </Link>
             <p className="text-[13px] text-white/50 leading-relaxed max-w-[280px]">
