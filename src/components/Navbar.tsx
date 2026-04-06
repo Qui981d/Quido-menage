@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Services", href: "/#services" },
@@ -41,7 +42,7 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1 lg:px-8">
-          <a href="#" className="flex items-center group">
+          <Link href="/" className="flex items-center group">
             <Image
               src="/menage/images/logo/Votre texte de paragraphe.png"
               alt="Quido"
@@ -50,28 +51,28 @@ export default function Navbar() {
               className="h-16 md:h-[88px] w-auto"
               priority
             />
-          </a>
+          </Link>
 
           <div className="hidden items-center gap-0.5 lg:flex">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-[15px] font-medium text-black/40 hover:text-black px-4 py-2 rounded-full hover:bg-black/[0.03] transition-all duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="/menage/reservation"
+            <Link
+              href="/reservation"
               className="group inline-flex items-center gap-2 rounded-full bg-quido px-6 py-2.5 text-[13.5px] font-semibold text-white font-display hover:bg-quido-dark hover:scale-[1.03] transition-all duration-300"
             >
               Réserver
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </Link>
           </div>
 
           <button
@@ -95,29 +96,35 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-1">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
                   initial={{ opacity: 0, x: -24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.07, duration: 0.4 }}
-                  className="text-3xl font-display font-bold text-black py-3 tracking-tight"
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block text-3xl font-display font-bold text-black py-3 tracking-tight"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <motion.a
-                href="/menage/reservation"
-                onClick={() => setMobileOpen(false)}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
-                className="mt-8 btn-primary justify-center"
               >
-                Réserver un créneau
-                <ArrowRight size={16} />
-              </motion.a>
+                <Link
+                  href="/reservation"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-8 btn-primary justify-center flex"
+                >
+                  Réserver un créneau
+                  <ArrowRight size={16} />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
