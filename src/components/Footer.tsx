@@ -13,9 +13,9 @@ const footerLinks = {
     { label: "FAQ", href: "/#faq" },
   ],
   legal: [
-    { label: "Mentions légales", href: "#" },
-    { label: "Politique de confidentialité", href: "#" },
-    { label: "CGU", href: "#" },
+    { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "Politique de confidentialité", href: "/confidentialite" },
+    { label: "CGU", href: "/cgu" },
   ],
 };
 
@@ -82,23 +82,38 @@ export default function Footer() {
           <div>
             <h4 className="font-display text-[11px] font-bold text-white/30 uppercase tracking-[0.14em] mb-5">Contact</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <Mail size={12} className="text-quido" />
-                </div>
-                <span className="text-sm text-white/50">hello@quido.fr</span>
+              <li>
+                <Link href="/contact" className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors duration-300 -ml-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-quido transition-colors duration-300">
+                    <Mail size={14} className="text-white" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1 font-display">Nous écrire</span>
+                    <span className="text-sm font-medium text-white group-hover:text-quido transition-colors">hello@quido.fr</span>
+                  </div>
+                </Link>
               </li>
-              <li className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <Phone size={12} className="text-quido" />
-                </div>
-                <span className="text-sm text-white/50">06 02 16 56 71</span>
+              <li>
+                <Link href="/contact" className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors duration-300 -ml-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-quido transition-colors duration-300">
+                    <Phone size={14} className="text-white" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1 font-display">Nous appeler</span>
+                    <span className="text-sm font-medium text-white group-hover:text-quido transition-colors">06 02 16 56 71</span>
+                  </div>
+                </Link>
               </li>
-              <li className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <MapPin size={12} className="text-quido" />
-                </div>
-                <span className="text-sm text-white/50 leading-relaxed max-w-[200px]">181 rue du parc Jean Monnet,<br/>01630 Saint-Genis-Pouilly</span>
+              <li>
+                <Link href="/contact" className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors duration-300 -ml-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-quido transition-colors duration-300">
+                    <MapPin size={14} className="text-white" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1 font-display">Nous trouver</span>
+                    <span className="text-sm font-medium text-white/80 leading-relaxed max-w-[200px]">181 rue du parc Jean Monnet,<br/>01630 Saint-Genis-Pouilly</span>
+                  </div>
+                </Link>
               </li>
             </ul>
           </div>
