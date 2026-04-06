@@ -7,17 +7,17 @@ import { ArrowRight } from "lucide-react";
 const testimonials = [
   {
     name: "Sophie M.",
-    location: "Paris 7ème",
+    location: "Divonne-les-Bains",
     quote: "Une prestation d'une qualité rare. L'équipe est discrète et le résultat est toujours au rendez-vous. C'est un soulagement quotidien.",
   },
   {
     name: "Thomas D.",
-    location: "Lyon 6ème",
+    location: "Ferney-Voltaire",
     quote: "Enfin un service sur lequel on peut compter les yeux fermés. Le soin apporté aux détails est vraiment ce qui fait la différence.",
   },
   {
     name: "Claire & Antoine",
-    location: "Bordeaux",
+    location: "Gex",
     quote: "Notre maison est toujours impeccable. La réservation est simple et l'intervention toujours ponctuelle. Un sans-faute.",
   },
 ];
