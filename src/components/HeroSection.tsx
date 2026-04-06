@@ -42,7 +42,13 @@ const badges = [
   { icon: Leaf, label: "Produits éco" },
 ];
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  cityName?: string;
+  customTitle?: React.ReactNode;
+  customSubtitle?: string;
+}
+
+export default function HeroSection({ cityName, customTitle, customSubtitle }: HeroSectionProps = {}) {
   return (
     <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-white">
       <div className="relative z-10 flex-1 flex flex-col justify-center mx-auto max-w-7xl px-6 lg:px-8 pt-32 pb-16">
@@ -58,9 +64,13 @@ export default function HeroSection() {
               className="font-display font-bold tracking-[-0.05em] leading-[0.92] text-black mb-8"
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
             >
-              RÉCUPÉREZ
-              <br />
-              VOS <span className="relative inline-block z-10">WEEK-ENDS.<span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span></span>
+              {customTitle || (
+                <>
+                  RÉCUPÉREZ
+                  <br />
+                  VOS <span className="relative inline-block z-10">WEEK-ENDS.<span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span></span>
+                </>
+              )}
             </motion.h1>
 
             <motion.p
@@ -69,8 +79,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-lg text-gray-500 leading-relaxed max-w-md mb-10"
             >
-              Le service de ménage et nettoyage de référence au Pays de Gex.
-              Personnel vérifié, produits éco, créneaux flexibles. De Ferney-Voltaire à Divonne-les-Bains.
+              {customSubtitle || "Le service de ménage et nettoyage de référence au Pays de Gex. Personnel vérifié, produits éco, créneaux flexibles. De Ferney-Voltaire à Divonne-les-Bains."}
             </motion.p>
 
             <motion.div

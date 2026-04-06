@@ -3,6 +3,7 @@
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { cities } from "@/lib/cities";
 
 const footerLinks = {
   service: [
@@ -43,7 +44,7 @@ export default function Footer() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           <div>
             <Image
               src="/menage/images/logo/logo-footer-green.png"
@@ -79,7 +80,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="lg:col-span-1">
+            <h4 className="font-display text-[11px] font-bold text-white/30 uppercase tracking-[0.14em] mb-5">Pays de Gex</h4>
+            <ul className="space-y-3">
+              {cities.map((city) => (
+                <li key={city.slug}>
+                  <Link href={`/ville/${city.slug}`} className="text-sm text-white/50 hover:text-white transition-colors duration-200">
+                    Ménage {city.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-1">
             <h4 className="font-display text-[11px] font-bold text-white/30 uppercase tracking-[0.14em] mb-5">Contact</h4>
             <ul className="space-y-3">
               <li>

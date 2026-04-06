@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/articles";
+import { cities } from "@/lib/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.quido.fr/menage";
@@ -34,5 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...articlePages];
+  // Dynamic city pages for Local SEO
+  const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
+    url: `${baseUrl}/ville/${city.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...articlePages, ...cityPages];
 }
