@@ -78,7 +78,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.65 }}
               className="flex flex-col sm:flex-row items-start gap-4 mb-14"
             >
-              <a href="#reservation" className="btn-primary btn-pulse">
+              <a href="/menage/reservation" className="btn-primary btn-pulse">
                 Réserver un créneau
                 <ArrowRight size={17} />
               </a>
