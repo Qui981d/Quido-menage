@@ -48,7 +48,7 @@ export default function Navbar() {
               alt="Quido"
               width={260}
               height={90}
-              className="h-16 md:h-[88px] w-auto"
+              className="h-10 md:h-14 w-auto"
               priority
             />
           </Link>
