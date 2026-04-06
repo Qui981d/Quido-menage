@@ -2,6 +2,7 @@
 
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = {
   service: [
@@ -35,10 +36,10 @@ export default function Footer() {
             <br />
             mérite le <span className="text-quido">meilleur.</span>
           </h2>
-          <a href="/menage/reservation" className="btn-primary-dark">
+          <Link href="/reservation" className="btn-primary-dark">
             Réserver un créneau
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
 
         {/* Grid */}
@@ -46,7 +47,7 @@ export default function Footer() {
           <div>
             <Image
               src="/menage/images/logo/logo-footer-green.png"
-              alt="Quido"
+              alt="Quido - Service de ménage premium au Pays de Gex"
               width={260}
               height={90}
               className="h-10 md:h-14 w-auto"
@@ -61,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.service.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-white/50 hover:text-white transition-colors duration-200">{link.label}</a>
+                  <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors duration-200">{link.label}</Link>
                 </li>
               ))}
             </ul>

@@ -45,7 +45,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center group">
             <Image
               src="/menage/images/logo/Votre texte de paragraphe.png"
-              alt="Quido"
+              alt="Quido - Service de ménage premium au Pays de Gex"
               width={260}
               height={90}
               className="h-10 md:h-14 w-auto"

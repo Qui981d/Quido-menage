@@ -17,23 +17,65 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Quido Ménage — Votre intérieur mérite le meilleur",
+  metadataBase: new URL("https://www.quido.fr"),
+  title: {
+    default: "Ménage & Nettoyage à Domicile au Pays de Gex | Quido",
+    template: "%s | Quido Ménage",
+  },
   description:
-    "Service de ménage premium par Quido. Personnel vérifié, créneaux flexibles, réservation en 2 minutes. Récupérez vos week-ends.",
+    "Service de ménage premium au Pays de Gex (Gex, Ferney-Voltaire, Divonne-les-Bains, Saint-Genis-Pouilly). Personnel vérifié, produits éco, ménage Airbnb, nettoyage fin de bail. Réservation en 2 min. Crédit d'impôt 50%.",
   keywords: [
+    "ménage pays de gex",
+    "femme de ménage pays de gex",
+    "nettoyage pays de gex",
+    "ménage ferney voltaire",
+    "femme de ménage ferney voltaire",
+    "ménage gex",
+    "femme de ménage gex",
+    "ménage divonne les bains",
+    "nettoyage saint genis pouilly",
+    "ménage airbnb pays de gex",
+    "conciergerie ménage gex",
+    "nettoyage fin de bail pays de gex",
+    "entreprise de nettoyage pays de gex",
+    "aide ménagère gex",
+    "ménage écologique pays de gex",
+    "nettoyage après travaux gex",
+    "service de ménage premium gex",
+    "crédit impôt ménage ain",
+    "ménage prévessin moëns",
+    "nettoyage thoiry",
+    "ménage cessy",
     "quido ménage",
-    "nettoyage à domicile",
-    "aide ménagère professionnelle",
-    "service de ménage premium",
-    "réservation ménage en ligne",
-    "personnel de maison vérifié",
   ],
+  alternates: {
+    canonical: "/menage",
+  },
   openGraph: {
-    title: "Quido Ménage — Votre intérieur mérite le meilleur",
+    title: "Ménage & Nettoyage Premium au Pays de Gex | Quido",
     description:
-      "Service de ménage premium par Quido. Personnel vérifié, créneaux flexibles, réservation en 2 minutes.",
+      "Le service de ménage de référence au Pays de Gex. Personnel vérifié, produits éco-responsables, créneaux flexibles, ménage Airbnb. Réservation en 2 minutes.",
     type: "website",
     locale: "fr_FR",
+    siteName: "Quido Ménage",
+    url: "https://www.quido.fr/menage",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ménage & Nettoyage Premium au Pays de Gex | Quido",
+    description:
+      "Le service de ménage de référence au Pays de Gex. Personnel vérifié, produits éco-responsables. Réservation en 2 minutes.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

@@ -81,7 +81,7 @@ export default function AboutLocalSection() {
               <div className="relative w-full h-full overflow-hidden rounded-xl">
                 <Image 
                   src="/menage/images/about-quido.jpg" 
-                  alt="L'équipe de professionnels Quido dans le Pays de Gex"
+                  alt="Équipe professionnelle Quido, entreprise de ménage et nettoyage à domicile au Pays de Gex (Ain)"
                   fill
                   className="object-cover"
                 />

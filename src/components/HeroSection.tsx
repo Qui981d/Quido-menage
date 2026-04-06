@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { ArrowRight, Shield, Sparkles, Leaf } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -68,8 +69,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-lg text-gray-500 leading-relaxed max-w-md mb-10"
             >
-              Un intérieur impeccable sans lever le petit doigt.
-              Personnel vérifié, créneaux flexibles, réservation en 2 min.
+              Le service de ménage et nettoyage de référence au Pays de Gex.
+              Personnel vérifié, produits éco, créneaux flexibles. De Ferney-Voltaire à Divonne-les-Bains.
             </motion.p>
 
             <motion.div
@@ -78,13 +79,13 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.65 }}
               className="flex flex-col sm:flex-row items-start gap-4 mb-14"
             >
-              <a href="/menage/reservation" className="btn-primary btn-pulse">
+              <Link href="/reservation" className="btn-primary btn-pulse">
                 Réserver un créneau
                 <ArrowRight size={17} />
-              </a>
-              <a href="#services" className="btn-secondary">
+              </Link>
+              <Link href="/#services" className="btn-secondary">
                 Découvrir nos services
-              </a>
+              </Link>
             </motion.div>
 
             {/* Counters */}
@@ -126,14 +127,14 @@ export default function HeroSection() {
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="relative rounded-full rounded-bl-[32px] overflow-hidden aspect-[3/4]">
-                <Image src="/menage/images/hero-living-room.png" alt="Salon parfaitement nettoyé" fill className="object-cover" />
+                <Image src="/menage/images/hero-living-room.png" alt="Salon nettoyé par Quido, service de ménage à domicile dans le Pays de Gex" fill className="object-cover" />
               </div>
               <div className="flex flex-col gap-4 pt-12">
                 <div className="relative rounded-[32px] overflow-hidden aspect-square">
-                  <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable" fill className="object-cover" />
+                  <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable après nettoyage professionnel à Ferney-Voltaire, Pays de Gex" fill className="object-cover" />
                 </div>
                 <div className="relative rounded-full rounded-tr-[32px] overflow-hidden aspect-[4/3]">
-                  <Image src="/menage/images/eco-products.png" alt="Produits éco-responsables" fill className="object-cover" />
+                  <Image src="/menage/images/eco-products.png" alt="Produits ménagers écologiques utilisés par Quido au Pays de Gex" fill className="object-cover" />
                 </div>
               </div>
             </div>

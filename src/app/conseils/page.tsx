@@ -1,5 +1,6 @@
 import { articles } from "@/lib/articles";
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -33,7 +34,7 @@ export default function BlogHub() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
-              <a 
+              <Link 
                 key={article.slug} 
                 href={`/conseils/${article.slug}`}
                 className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
@@ -76,7 +77,7 @@ export default function BlogHub() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
           

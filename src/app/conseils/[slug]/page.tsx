@@ -1,6 +1,7 @@
 import { articles } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReactMarkdown from "react-markdown";
@@ -71,9 +72,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           
           <header className="mb-14">
             <div className="flex items-center gap-3 mb-6">
-              <a href="/conseils" className="text-gray-400 hover:text-black font-bold uppercase tracking-widest text-[11px] transition-colors">
+              <Link href="/conseils" className="text-gray-400 hover:text-black font-bold uppercase tracking-widest text-[11px] transition-colors">
                 Magazine
-              </a>
+              </Link>
               <span className="w-1 h-1 bg-gray-300 rounded-full" />
               <span className="text-quido font-bold uppercase tracking-widest text-[11px]">
                 {article.category}
@@ -127,9 +128,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <div className="mt-20 p-10 bg-gray-50 rounded-3xl border border-gray-100 text-center">
             <h3 className="font-display font-bold text-2xl text-black mb-4">Prêt à confier votre intérieur à des experts ?</h3>
             <p className="text-gray-500 mb-8">Obtenez un devis gratuit et sans engagement en moins de 2 minutes pour nos services au Pays de Gex.</p>
-            <a href="/reservation" className="inline-flex bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors">
+            <Link href="/reservation" className="inline-flex bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors">
               Réserver un créneau
-            </a>
+            </Link>
           </div>
 
         </article>

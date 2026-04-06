@@ -3,31 +3,40 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Plus, Minus, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const faqItems = [
   {
-    question: "Comment sont sélectionnés vos intervenants ?",
-    answer: "Chaque candidat passe par un processus rigoureux : vérification d'identité, d'expérience et de références. Nous réalisons des entretiens personnels pour nous assurer de leur fiabilité et de leur savoir-être.",
+    question: "Comment sont sélectionnés vos intervenants au Pays de Gex ?",
+    answer: "Chaque candidat passe par un processus rigoureux : vérification d'identité, d'expérience et de références. Nous réalisons des entretiens personnels pour nous assurer de leur fiabilité et de leur savoir-être. Tous nos agents de propreté au Pays de Gex sont déclarés, assurés RC Pro, et formés à nos protocoles de nettoyage premium.",
   },
   {
     question: "Puis-je garder le même intervenant à chaque fois ?",
-    answer: "Absolument. Nous favorisons la continuité en vous attribuant un(e) intervenant(e) attitré(e) qui connaît vos habitudes et vos préférences.",
+    answer: "Absolument. Nous favorisons la continuité en vous attribuant un(e) intervenant(e) attitré(e) qui connaît vos habitudes et vos préférences. C'est d'ailleurs notre force au Pays de Gex : nos agents travaillent à nos côtés depuis des années, que vous soyez à Gex, Ferney-Voltaire ou Divonne-les-Bains.",
   },
   {
     question: "Quels produits d'entretien sont utilisés ?",
-    answer: "Nos intervenants utilisent des produits professionnels efficaces et écologiques. Vous pouvez aussi fournir vos propres produits si vous le souhaitez.",
+    answer: "Nos intervenants utilisent des produits professionnels écologiques, sans COV nocifs : pas de javel ni d'ammoniac. Nous privilégions des gammes éco-labelisées et la puissance de la vapeur sèche. Vous pouvez aussi fournir vos propres produits. Notre démarche éco-responsable protège votre famille, vos animaux et l'environnement du Pays de Gex.",
   },
   {
     question: "Comment modifier ou annuler une réservation ?",
-    answer: "Modifiez ou annulez en ligne jusqu'à 24h avant le créneau prévu. Aucun frais dans ce délai.",
+    answer: "Modifiez ou annulez en ligne jusqu'à 24h avant le créneau prévu. Aucun frais dans ce délai. La flexibilité est au cœur de notre service.",
   },
   {
     question: "Êtes-vous assurés ?",
-    answer: "Oui, chaque intervention est couverte par notre assurance responsabilité civile professionnelle.",
+    answer: "Oui, chaque intervention au Pays de Gex est couverte par notre assurance responsabilité civile professionnelle (RC Pro). En cas de casse accidentelle sur vos biens, tout est pris en charge sans aucune démarche de votre part.",
   },
   {
-    question: "Quelles sont vos zones d'intervention ?",
-    answer: "Nous intervenons dans les grandes métropoles et leurs agglomérations. Renseignez votre code postal lors de la réservation.",
+    question: "Quelles sont vos zones d'intervention dans le Pays de Gex ?",
+    answer: "Nous intervenons dans l'ensemble du Pays de Gex (01) : Gex, Ferney-Voltaire, Saint-Genis-Pouilly, Divonne-les-Bains, Cessy, Prévessin-Moëns, Thoiry, Ornex, Ségny, Crozet, Versonnex et Échenevex. Renseignez votre code postal lors de la réservation.",
+  },
+  {
+    question: "Proposez-vous le ménage pour les locations Airbnb au Pays de Gex ?",
+    answer: "Oui, nous proposons un service de ménage Airbnb et de conciergerie locative sur-mesure dans tout le Pays de Gex. Nettoyage entre chaque voyageur, préparation du linge, mise en place — nous gérons l'intégralité de l'entretien de vos locations saisonnières avec la même exigence premium que pour nos clients particuliers.",
+  },
+  {
+    question: "Le ménage à domicile ouvre-t-il droit au crédit d'impôt de 50% ?",
+    answer: "Oui. En tant qu'entreprise agréée Services à la Personne (SAP), nos prestations de ménage à domicile ouvrent droit au crédit d'impôt immédiat de 50%. Concrètement, 200€ de ménage ne vous coûtent que 100€. L'avance immédiate URSSAF est disponible, vous ne payez que le montant net dès la facturation.",
   },
 ];
 
@@ -59,15 +68,15 @@ export default function FAQSection() {
                 Des <span className="relative inline-block z-10 text-black">questions<span className="absolute -bottom-1 -left-2 -right-4 h-[8px] bg-quido/80 -z-10 rotate-1 origin-left"></span></span> ?
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-sm">
-                Les réponses aux questions les plus fréquentes de nos clients.
+                Les réponses aux questions les plus fréquentes de nos clients au Pays de Gex.
               </p>
-              <a
-                href="/menage/reservation"
+              <Link
+                href="/reservation"
                 className="group inline-flex items-center gap-2 text-[14px] font-bold text-black border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors font-display w-fit"
               >
                 Réserver maintenant
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </motion.div>
 

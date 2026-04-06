@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronDown, Check } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -24,7 +25,7 @@ const services = [
   {
     title: "Sur mesure",
     description: "Vous décidez, on s'adapte. Chaque foyer est unique.",
-    details: "Besoins atypiques ou conciergerie locative haut de gamme (Airbnb Premium) ? Entretien de baies vitrées de plusieurs mètres, ou résidence secondaire à préparer pour l'été ? Nous établissons un cahier des charges 100% personnalisé."
+    details: "Besoins atypiques ou conciergerie locative haut de gamme ? Ménage Airbnb entre chaque voyageur au Pays de Gex, entretien de villas avec baies vitrées panoramiques, ou résidence secondaire à préparer pour l'été à Divonne-les-Bains ? Nous établissons un cahier des charges 100% personnalisé."
   },
 ];
 
@@ -79,7 +80,7 @@ export default function BentoShowcase() {
           <div className="aspect-[21/9] sm:aspect-[2.5/1] relative">
             <Image
               src="/menage/images/hero-living-room.png"
-              alt="Intérieur parfaitement nettoyé"
+              alt="Intérieur nettoyé par le service de ménage Quido au Pays de Gex"
               fill
               className="object-cover group-hover:scale-[1.02] transition-transform duration-[1.2s]"
             />
@@ -173,13 +174,13 @@ export default function BentoShowcase() {
                         </li>
                       </ul>
 
-                      <a 
-                        href="/menage/reservation" 
+                      <Link 
+                        href="/reservation" 
                         className="group/btn inline-flex items-center gap-3 bg-black text-white px-6 py-3.5 rounded-xl font-bold hover:bg-gray-800 transition-colors"
                       >
                         Réserver mon ménage
                         <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                      </a>
+                      </Link>
                     </div>
                   </motion.div>
                 )}
@@ -196,7 +197,7 @@ export default function BentoShowcase() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="relative rounded-[16px] overflow-hidden aspect-[4/3] group"
           >
-            <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+            <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable après nettoyage professionnel à Gex, Pays de Gex" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
             <div className="absolute bottom-5 left-5">
               <p className="text-white text-sm font-semibold font-display">Cuisines impeccables</p>
@@ -209,7 +210,7 @@ export default function BentoShowcase() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="relative rounded-[16px] overflow-hidden aspect-[4/3] group"
           >
-            <Image src="/menage/images/bathroom-premium.png" alt="Salle de bain immaculée" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+            <Image src="/menage/images/bathroom-premium.png" alt="Salle de bain immaculée, nettoyage professionnel à Saint-Genis-Pouilly" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
             <div className="absolute bottom-5 left-5">
               <p className="text-white text-sm font-semibold font-display">Salles de bain</p>
@@ -222,7 +223,7 @@ export default function BentoShowcase() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="relative rounded-[16px] overflow-hidden aspect-[4/3] group col-span-2 lg:col-span-1"
           >
-            <Image src="/menage/images/eco-products.png" alt="Produits éco-responsables" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+            <Image src="/menage/images/eco-products.png" alt="Produits d'entretien écologiques certifiés utilisés au Pays de Gex" fill className="object-cover group-hover:scale-[1.04] transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-5 left-5">
               <p className="text-white text-sm font-semibold font-display">100% éco-responsable</p>

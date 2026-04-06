@@ -3,6 +3,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -106,13 +107,13 @@ export default function ProofAndBooking() {
               Devenez l'un de nos clients privilégiés. Obtenez une simulation en moins de 2 minutes.
             </p>
 
-            <a 
-              href="/menage/reservation" 
+            <Link 
+              href="/reservation" 
               className="group inline-flex items-center gap-4 text-2xl lg:text-3xl font-display font-bold text-black border-b-2 border-black pb-2 hover:text-gray-500 hover:border-gray-500 transition-colors duration-300"
             >
               Évaluer mon besoin
               <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform duration-300" />
-            </a>
+            </Link>
           </motion.div>
         </div>
 

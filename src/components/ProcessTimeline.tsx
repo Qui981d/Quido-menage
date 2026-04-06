@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
@@ -58,10 +59,10 @@ export default function ProcessTimeline() {
             <p className="text-white/50 text-lg leading-relaxed max-w-md mb-12">
               Nous avons éliminé toute friction. Dites-nous ce qu&apos;il vous faut, nous nous occupons du reste.
             </p>
-            <a href="#reservation" className="btn-primary-dark group hidden lg:inline-flex">
+            <Link href="/reservation" className="btn-primary-dark group hidden lg:inline-flex">
                Réserver un créneau
                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </motion.div>
 
           {/* RIGHT — Scrolling Editorial Timeline */}
@@ -107,10 +108,10 @@ export default function ProcessTimeline() {
             
             {/* Mobile CTA */}
             <div className="mt-20 pl-[70px] lg:hidden">
-               <a href="#reservation" className="btn-primary-dark group">
+               <Link href="/reservation" className="btn-primary-dark group">
                  Commencer
                  <ArrowRight size={16} />
-               </a>
+               </Link>
             </div>
           </div>
           
