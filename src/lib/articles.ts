@@ -24,7 +24,7 @@ export const articles: Article[] = [
     date: "2026-04-04",
     category: "Guide Local",
     readTime: "5 min",
-    image: "/images/blog/staff.png",
+    image: "/menage/images/blog/staff.png",
     metadata: {
       title: "Meilleure Entreprise de Nettoyage au Pays de Gex | Quido",
       description: "Vous cherchez une entreprise de nettoyage de confiance au Pays de Gex ? Nos experts vous guident pour choisir un service premium et sécurisé.",
@@ -55,7 +55,7 @@ De nombreuses personnes embauchent une femme de ménage au noir ou passent par d
     date: "2026-04-03",
     category: "Prestige",
     readTime: "4 min",
-    image: "/images/blog/living.png",
+    image: "/menage/images/blog/living.png",
     metadata: {
       title: "Nettoyage Haute Gamme à Divonne-les-Bains (01220) | Quido",
       description: "Propriétaires à Divonne-les-Bains, confiez l'entretien de votre villa ou de votre appartement de standing à une équipe de professionnels formés à l'excellence.",
@@ -86,7 +86,7 @@ La beauté de Divonne réside aussi dans ses grandes ouvertures sur la nature, e
     date: "2026-04-02",
     category: "Conseil Pratique",
     readTime: "6 min",
-    image: "/images/blog/kitchen.png",
+    image: "/menage/images/blog/kitchen.png",
     metadata: {
       title: "Nettoyage État des Lieux & Fin de Bail Pays de Gex/Suisse | Quido",
       description: "Déménagement en vue ? Notre guide ultime pour réussir son nettoyage de remise des clés, répondre aux normes des régies suisses et récupérer sa caution.",
@@ -115,7 +115,7 @@ L’équipe Quido utilise de la vapeur sèche à haute pression pour désincrust
     date: "2026-04-01",
     category: "B2B",
     readTime: "4 min",
-    image: "/images/blog/office.png",
+    image: "/menage/images/blog/office.png",
     metadata: {
       title: "Nettoyage de Bureaux et Locaux au Pays de Gex (B2B) | Quido",
       description: "Entreprises de Ferney, St-Genis et Meyrin : l'entretien de vos bureaux a un impact direct sur le bien-être de vos employés. Nos solutions pros.",
@@ -144,7 +144,7 @@ Faites l'expérience du nettoyage B2B sans friction : un devis sur mesure, sans 
     date: "2026-03-25",
     category: "Éco-responsabilité",
     readTime: "5 min",
-    image: "/images/blog/eco.png",
+    image: "/menage/images/blog/eco.png",
     metadata: {
       title: "Ménage Écologique et Produits Verts au Pays de Gex | Quido",
       description: "Comprenez l'importance du ménage écologique. Quido utilise des produits respectueux de la santé, vos animaux et de la nature de l'Ain.",
@@ -173,7 +173,7 @@ L'engagement "Vert" de Quido n'est pas qu'un mot marketing, c'est une exigence d
     date: "2026-03-24",
     category: "Dépannage",
     readTime: "4 min",
-    image: "/images/blog/construction.png",
+    image: "/menage/images/blog/construction.png",
     metadata: {
       title: "Nettoyage Fin de Chantier & Après Travaux Pays de Gex | Quido",
       description: "Vous venez de faire des travaux ? La poussière de plâtre et le ciment nécessitent un nettoyage professionnel. Interventions rapides sur Gex, Thoiry...",
@@ -206,7 +206,7 @@ Nous prenons aussi en charge :
     date: "2026-03-20",
     category: "Conseil Pratique",
     readTime: "7 min",
-    image: "/images/blog/spring.png",
+    image: "/menage/images/blog/spring.png",
     metadata: {
       title: "Checklist Nettoyage de Printemps : Le Guide Professionnel | Quido",
       description: "Comment faire un nettoyage en profondeur parfait ? La checklist ultime et les conseils professionnels de l'équipe ménage Quido.",
@@ -247,7 +247,7 @@ Vous pouvez passer votre week-end sur cette mission colossale... Ou bien réserv
     date: "2026-03-15",
     category: "Administratif",
     readTime: "3 min",
-    image: "/images/blog/desk.png",
+    image: "/menage/images/blog/desk.png",
     metadata: {
       title: "Crédit d'Impôt Ménage : Paiement CESU dans l'Ain (01) | Quido",
       description: "Vous hésitez à prendre une femme de ménage dans le Pays de Gex ? Bénéficiez du crédit d'impôt de 50% sur les heures de nettoyage à domicile. Guide complet.",
@@ -277,7 +277,7 @@ Investir dans une tranquillité d'esprit, un week-end libre et une maison sentan
     date: "2026-03-10",
     category: "Conseil Pratique",
     readTime: "4 min",
-    image: "/images/blog/window.png",
+    image: "/menage/images/blog/window.png",
     metadata: {
       title: "Nettoyage Vitres et Baies Vitrées au Pays de Gex | Quido",
       description: "Nos secrets de laveur de vitres pour obtenir des carreaux impeccables, sans trace, face aux intempéries complexes du Pays de Gex et des Alpes.",
@@ -309,7 +309,7 @@ Si laver les vitres de votre villa aux plafonds cathédrale vous donne le vertig
     date: "2026-03-05",
     category: "Expertise",
     readTime: "5 min",
-    image: "/images/blog/bathroom.png",
+    image: "/menage/images/blog/bathroom.png",
     metadata: {
       title: "Différence Nettoyage, Désinfection et Assainissement | Quido",
       description: "Pourquoi un sol qui a l'air propre n'est pas forcément hygiénique. Les experts de Quido vous expliquent les normes de l'assainissement et de la désinfection bactériologique.",
