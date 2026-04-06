@@ -1,19 +1,42 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+const proximaNova = localFont({
+  src: [
+    {
+      path: "../../public/Font/ProximaNova-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/Font/ProximaNova-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/Font/ProximaNova-Semibold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/Font/ProximaNova-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/Font/ProximaNova-Extrabold.otf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/Font/ProximaNova-Black.otf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-proxima",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -86,7 +109,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}>
+      <body className={`${proximaNova.variable} font-body antialiased selection:bg-quido/30 selection:text-black min-h-screen flex flex-col`} suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -19,8 +19,8 @@
   --color-gray-500: #555555;
 
   /* Fonts */
-  --font-display: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
-  --font-body: var(--font-inter), 'Inter', sans-serif;
+  --font-display: var(--font-proxima), 'Proxima Nova', sans-serif;
+  --font-body: var(--font-proxima), 'Proxima Nova', sans-serif;
 }
 
 /* ── Base ── */
