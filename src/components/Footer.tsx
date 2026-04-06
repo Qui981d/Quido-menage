@@ -49,7 +49,7 @@ export default function Footer() {
               alt="Quido"
               width={260}
               height={90}
-              className="h-20 md:h-[88px] w-auto"
+              className="h-10 md:h-14 w-auto"
             />
             <p className="text-sm text-white/50 leading-relaxed mt-3 max-w-xs">
               Le service de ménage premium par Quido. Personnel vérifié, créneaux flexibles.
