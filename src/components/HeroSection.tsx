@@ -56,7 +56,7 @@ export default function HeroSection({ cityName, customTitle, customSubtitle }: H
           {/* LEFT */}
           <div>
 
-
+            {/* SEO-optimized H1 with primary keywords */}
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,20 +66,25 @@ export default function HeroSection({ cityName, customTitle, customSubtitle }: H
             >
               {customTitle || (
                 <>
-                  RÉCUPÉREZ
+                  MÉNAGE &
                   <br />
-                  VOS <span className="relative inline-block z-10">WEEK-ENDS.<span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span></span>
+                  NETTOYAGE{" "}
+                  <span className="relative inline-block z-10">
+                    À DOMICILE.
+                    <span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span>
+                  </span>
                 </>
               )}
             </motion.h1>
 
+            {/* Keyword-rich subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-lg text-gray-500 leading-relaxed max-w-md mb-10"
             >
-              {customSubtitle || "Le service de ménage et nettoyage de référence au Pays de Gex. Personnel vérifié, produits éco, créneaux flexibles. De Ferney-Voltaire à Divonne-les-Bains."}
+              {customSubtitle || "Votre femme de ménage de confiance au Pays de Gex. De Ferney-Voltaire à Divonne-les-Bains : personnel vérifié, produits éco-responsables, créneaux flexibles. Crédit d'impôt 50%."}
             </motion.p>
 
             <motion.div
@@ -108,7 +113,7 @@ export default function HeroSection({ cityName, customTitle, customSubtitle }: H
                 <p className="font-display text-2xl sm:text-3xl font-bold text-black tracking-tight">
                   <AnimatedCounter target={165} suffix="+" />
                 </p>
-                <p className="text-sm text-gray-400 mt-0.5">foyers</p>
+                <p className="text-sm text-gray-400 mt-0.5">foyers entretenus</p>
               </div>
               <div className="w-px h-8 bg-gray-200" />
               <div>
@@ -136,14 +141,14 @@ export default function HeroSection({ cityName, customTitle, customSubtitle }: H
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="relative rounded-full rounded-bl-[32px] overflow-hidden aspect-[3/4]">
-                <Image src="/menage/images/hero-living-room.png" alt="Salon nettoyé par Quido, service de ménage à domicile dans le Pays de Gex" fill className="object-cover" />
+                <Image src="/menage/images/hero-living-room.png" alt="Salon nettoyé par Quido, service de ménage à domicile dans le Pays de Gex" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 400px" priority />
               </div>
               <div className="flex flex-col gap-4 pt-12">
                 <div className="relative rounded-[32px] overflow-hidden aspect-square">
-                  <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable après nettoyage professionnel à Ferney-Voltaire, Pays de Gex" fill className="object-cover" />
+                  <Image src="/menage/images/kitchen-premium.png" alt="Cuisine impeccable après nettoyage professionnel à Ferney-Voltaire, Pays de Gex" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 300px" />
                 </div>
                 <div className="relative rounded-full rounded-tr-[32px] overflow-hidden aspect-[4/3]">
-                  <Image src="/menage/images/eco-products.png" alt="Produits ménagers écologiques utilisés par Quido au Pays de Gex" fill className="object-cover" />
+                  <Image src="/menage/images/eco-products.png" alt="Produits ménagers écologiques utilisés par Quido au Pays de Gex" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 300px" />
                 </div>
               </div>
             </div>

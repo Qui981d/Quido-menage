@@ -3,16 +3,87 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Conseils et Expertise Ménage au Pays de Gex | Quido",
-  description: "Découvrez les articles experts de Quido : astuces d'entretien, conseils nettoyage et guides locaux pour Ferney-Voltaire, Divonne, Gex et le Grand Genève.",
-  keywords: "blog ménage pays de gex, conseils nettoyage, guide entretien domicile, femme de ménage gex",
+export const metadata: Metadata = {
+  title: "Conseils Ménage & Nettoyage au Pays de Gex | Blog Quido",
+  description: "Découvrez les conseils d'experts Quido : astuces d'entretien ménager, guides nettoyage de printemps, fin de bail, produits écologiques et crédit d'impôt. Blog ménage Pays de Gex.",
+  alternates: {
+    canonical: "/menage/conseils",
+  },
+  openGraph: {
+    title: "Conseils Ménage & Nettoyage au Pays de Gex | Blog Quido",
+    description: "Tous nos conseils de professionnels du ménage : guides, astuces et expertise locale pour un intérieur impeccable au Pays de Gex.",
+    type: "website",
+    locale: "fr_FR",
+    siteName: "Quido Ménage",
+    url: "https://www.quido.fr/menage/conseils",
+    images: [
+      {
+        url: "/menage/images/about-quido.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Blog Quido Ménage — Conseils nettoyage et entretien",
+      },
+    ],
+  },
 };
 
 export default function BlogHub() {
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Conseils & Expertise Ménage — Blog Quido",
+    description: "Articles experts sur le ménage, le nettoyage et l'entretien à domicile au Pays de Gex.",
+    url: "https://www.quido.fr/menage/conseils",
+    isPartOf: { "@id": "https://www.quido.fr/menage/#website" },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: articles.length,
+      itemListElement: articles.map((article, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://www.quido.fr/menage/conseils/${article.slug}`,
+        name: article.title,
+      })),
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Quido",
+        item: "https://www.quido.fr",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Ménage au Pays de Gex",
+        item: "https://www.quido.fr/menage",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Conseils & Blog",
+        item: "https://www.quido.fr/menage/conseils",
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-gray-50 pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -25,10 +96,10 @@ export default function BlogHub() {
               className="font-display font-bold tracking-[-0.04em] text-black leading-[0.98] mb-6"
               style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}
             >
-              L'expertise Quido.
+              Conseils ménage & nettoyage.
             </h1>
             <p className="text-gray-500 text-lg lg:text-xl max-w-2xl">
-              Les conseils de professionnels de l'entretien et du nettoyage pour maintenir un espace de vie impeccable dans le bassin lémanique.
+              Les conseils de professionnels de l'entretien et du nettoyage pour maintenir un espace de vie impeccable au Pays de Gex et dans le bassin lémanique.
             </p>
           </div>
 

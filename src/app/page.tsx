@@ -7,21 +7,56 @@ import AboutLocalSection from "@/components/AboutLocalSection";
 import ProofAndBooking from "@/components/ProofAndBooking";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import { getFaqItems } from "@/lib/faq";
+
+/* ─── JSON-LD STRUCTURED DATA ─── */
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.quido.fr/#organization",
+  name: "Quido",
+  url: "https://www.quido.fr",
+  logo: "https://www.quido.fr/menage/images/logo/logo-footer-green.png",
+  description:
+    "Quido est une entreprise de conciergerie et de services à la personne basée au Pays de Gex (Ain, 01). Spécialisée dans le ménage à domicile premium, le nettoyage professionnel et la conciergerie locative haut de gamme.",
+  foundingDate: "2023",
+  founder: {
+    "@type": "Person",
+    name: "Martin",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+33602165671",
+      contactType: "customer service",
+      email: "hello@quido.fr",
+      areaServed: "FR",
+      availableLanguage: ["French"],
+    },
+  ],
+  sameAs: [
+    "https://www.quido.fr",
+    "https://www.instagram.com/quido.fr",
+  ],
+};
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "HousekeepingService",
   "@id": "https://www.quido.fr/menage/#localbusiness",
   name: "Quido Ménage",
+  alternateName: "Quido — Service de Ménage au Pays de Gex",
   description:
-    "Service de ménage et nettoyage premium à domicile au Pays de Gex. Personnel vérifié, produits écologiques, ménage Airbnb, nettoyage fin de bail.",
+    "Service de ménage et nettoyage premium à domicile au Pays de Gex. Femme de ménage de confiance, agents vérifiés et formés, produits écologiques, ménage Airbnb, nettoyage fin de bail. Entreprise agréée Services à la Personne (SAP) ouvrant droit au crédit d'impôt de 50%.",
   url: "https://www.quido.fr/menage",
   telephone: "+33602165671",
   email: "hello@quido.fr",
   image: "https://www.quido.fr/menage/images/about-quido.jpg",
   priceRange: "€€",
   currenciesAccepted: "EUR",
-  paymentAccepted: "Cash, Credit Card, CESU",
+  paymentAccepted: "Cash, Credit Card, CESU, Virement bancaire",
+  parentOrganization: { "@id": "https://www.quido.fr/#organization" },
   address: {
     "@type": "PostalAddress",
     streetAddress: "181 rue du parc Jean Monnet",
@@ -35,20 +70,21 @@ const localBusinessJsonLd = {
     latitude: 46.2437,
     longitude: 6.0229,
   },
+  hasMap: "https://maps.google.com/?q=181+Rue+du+Parc+Jean+Monnet,+01630+Saint-Genis-Pouilly",
   areaServed: [
     { "@type": "City", name: "Gex", sameAs: "https://fr.wikipedia.org/wiki/Gex_(Ain)" },
-    { "@type": "City", name: "Ferney-Voltaire" },
-    { "@type": "City", name: "Saint-Genis-Pouilly" },
-    { "@type": "City", name: "Divonne-les-Bains" },
-    { "@type": "City", name: "Cessy" },
-    { "@type": "City", name: "Prévessin-Moëns" },
-    { "@type": "City", name: "Thoiry" },
+    { "@type": "City", name: "Ferney-Voltaire", sameAs: "https://fr.wikipedia.org/wiki/Ferney-Voltaire" },
+    { "@type": "City", name: "Saint-Genis-Pouilly", sameAs: "https://fr.wikipedia.org/wiki/Saint-Genis-Pouilly" },
+    { "@type": "City", name: "Divonne-les-Bains", sameAs: "https://fr.wikipedia.org/wiki/Divonne-les-Bains" },
+    { "@type": "City", name: "Cessy", sameAs: "https://fr.wikipedia.org/wiki/Cessy" },
+    { "@type": "City", name: "Prévessin-Moëns", sameAs: "https://fr.wikipedia.org/wiki/Pr%C3%A9vessin-Mo%C3%ABns" },
+    { "@type": "City", name: "Thoiry", sameAs: "https://fr.wikipedia.org/wiki/Thoiry_(Ain)" },
     { "@type": "City", name: "Ornex" },
     { "@type": "City", name: "Ségny" },
     { "@type": "City", name: "Crozet" },
     { "@type": "City", name: "Versonnex" },
     { "@type": "City", name: "Échenevex" },
-    { "@type": "AdministrativeArea", name: "Pays de Gex" },
+    { "@type": "AdministrativeArea", name: "Pays de Gex", sameAs: "https://fr.wikipedia.org/wiki/Pays_de_Gex" },
   ],
   openingHoursSpecification: [
     {
@@ -78,7 +114,7 @@ const localBusinessJsonLd = {
       reviewRating: { "@type": "Rating", ratingValue: "5" },
       reviewBody:
         "Une prestation d'une qualité rare. L'équipe est discrète et le résultat est toujours au rendez-vous.",
-      datePublished: "2026-03-15",
+      datePublished: "2025-11-15",
     },
     {
       "@type": "Review",
@@ -86,7 +122,7 @@ const localBusinessJsonLd = {
       reviewRating: { "@type": "Rating", ratingValue: "5" },
       reviewBody:
         "Enfin un service sur lequel on peut compter les yeux fermés. Le soin apporté aux détails est vraiment ce qui fait la différence.",
-      datePublished: "2026-02-20",
+      datePublished: "2025-09-20",
     },
     {
       "@type": "Review",
@@ -94,10 +130,24 @@ const localBusinessJsonLd = {
       reviewRating: { "@type": "Rating", ratingValue: "5" },
       reviewBody:
         "Notre maison est toujours impeccable. La réservation est simple et l'intervention toujours ponctuelle. Un sans-faute.",
-      datePublished: "2026-01-10",
+      datePublished: "2025-07-10",
     },
   ],
-  sameAs: ["https://www.quido.fr"],
+  sameAs: [
+    "https://www.quido.fr",
+    "https://www.instagram.com/quido.fr",
+  ],
+  knowsAbout: [
+    "Ménage à domicile",
+    "Femme de ménage",
+    "Nettoyage professionnel",
+    "Nettoyage fin de bail",
+    "Ménage Airbnb",
+    "Conciergerie locative",
+    "Nettoyage écologique",
+    "Services à la Personne",
+    "Crédit d'impôt SAP",
+  ],
 };
 
 const servicesJsonLd = {
@@ -106,7 +156,7 @@ const servicesJsonLd = {
   "@id": "https://www.quido.fr/menage/#service",
   serviceType: "Ménage et nettoyage à domicile",
   provider: { "@id": "https://www.quido.fr/menage/#localbusiness" },
-  areaServed: { "@type": "AdministrativeArea", name: "Pays de Gex, Ain" },
+  areaServed: { "@type": "AdministrativeArea", name: "Pays de Gex, Ain (01)" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Services de ménage Quido",
@@ -115,111 +165,69 @@ const servicesJsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Ménage régulier",
+          name: "Ménage régulier à domicile",
           description:
-            "Entretien hebdomadaire ou bi-mensuel de votre domicile au Pays de Gex. Même intervenant(e) attitré(e) à chaque visite.",
+            "Entretien hebdomadaire ou bi-mensuel de votre domicile au Pays de Gex. La même femme de ménage attitrée à chaque visite pour un résultat constant et une relation de confiance.",
+          url: "https://www.quido.fr/menage#services",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Grand nettoyage (Deep Clean)",
+          name: "Grand nettoyage en profondeur (Deep Clean)",
           description:
-            "Nettoyage en profondeur du sol au plafond. Idéal pour le nettoyage de printemps à Gex, Ferney-Voltaire ou Divonne.",
+            "Nettoyage en profondeur du sol au plafond. Idéal pour le nettoyage de printemps, un changement de saison ou une remise à neuf complète de votre intérieur à Gex, Ferney-Voltaire ou Divonne-les-Bains.",
+          url: "https://www.quido.fr/menage#services",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Nettoyage fin de bail / après travaux",
+          name: "Nettoyage fin de bail et remise en état",
           description:
-            "Remise en état après déménagement ou rénovation. Nettoyage garanti pour la remise des clés aux régies du Pays de Gex et Genève.",
+            "Remise en état après déménagement, travaux ou rénovation. Nettoyage garanti conforme aux exigences des régies immobilières du Pays de Gex et de Genève pour la remise des clés.",
+          url: "https://www.quido.fr/menage#services",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Ménage Airbnb / Conciergerie locative",
+          name: "Ménage Airbnb et conciergerie locative",
           description:
-            "Nettoyage entre chaque voyageur pour locations Airbnb et conciergerie haut de gamme au Pays de Gex.",
+            "Nettoyage professionnel entre chaque voyageur pour locations Airbnb et conciergerie haut de gamme au Pays de Gex. Préparation du linge, mise en place, accueil voyageurs.",
+          url: "https://www.quido.fr/menage#services",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Nettoyage après travaux et fin de chantier",
+          description:
+            "Nettoyage professionnel de fin de chantier : élimination de la poussière de plâtre, laitances de ciment, grattage des vitres. Matériel industriel. Intervention rapide dans tout le Pays de Gex.",
+          url: "https://www.quido.fr/menage#services",
         },
       },
     ],
   },
 };
 
+// Build FAQ JSON-LD dynamically from the actual FAQ component data
+const faqItems = getFaqItems();
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Comment sont sélectionnés vos intervenants au Pays de Gex ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Chaque candidat passe par un processus rigoureux : vérification d'identité, d'expérience et de références. Nous réalisons des entretiens personnels pour nous assurer de leur fiabilité et de leur savoir-être. Tous nos intervenants au Pays de Gex sont déclarés, assurés RC Pro, et formés à nos protocoles de nettoyage premium.",
-      },
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
     },
-    {
-      "@type": "Question",
-      name: "Puis-je garder le même intervenant à chaque fois ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Absolument. Nous favorisons la continuité en vous attribuant un(e) intervenant(e) attitré(e) qui connaît vos habitudes et vos préférences. C'est d'ailleurs notre force au Pays de Gex : nos agents travaillent à nos côtés depuis des années.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quels produits d'entretien sont utilisés chez Quido ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Nos intervenants utilisent des produits professionnels écologiques, sans COV nocifs (pas de javel ni d'ammoniac). Vous pouvez aussi fournir vos propres produits si vous le souhaitez. Notre démarche éco-responsable protège votre famille, vos animaux et l'environnement du Pays de Gex.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Comment modifier ou annuler une réservation ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Modifiez ou annulez en ligne jusqu'à 24h avant le créneau prévu. Aucun frais dans ce délai.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Êtes-vous assurés ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, chaque intervention au Pays de Gex est couverte par notre assurance responsabilité civile professionnelle (RC Pro). Vos biens sont protégés en cas de casse ou de dommage accidentel.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quelles sont vos zones d'intervention dans le Pays de Gex ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Nous intervenons dans l'ensemble du Pays de Gex (01) : Gex, Ferney-Voltaire, Saint-Genis-Pouilly, Divonne-les-Bains, Cessy, Prévessin-Moëns, Thoiry, Ornex, Ségny, Crozet et Versonnex.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Proposez-vous le ménage pour les logements Airbnb au Pays de Gex ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, nous proposons un service de ménage Airbnb et de conciergerie locative sur-mesure dans tout le Pays de Gex. Nettoyage entre chaque voyageur, préparation du linge, accueil — nous gérons l'intégralité de l'entretien de vos locations saisonnières.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Le ménage à domicile ouvre-t-il droit au crédit d'impôt de 50% ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui. En tant qu'entreprise agréée Services à la Personne (SAP), nos prestations de ménage à domicile ouvrent droit au crédit d'impôt immédiat de 50%. Le coût réel de votre ménage est donc divisé par deux. L'avance immédiate URSSAF est disponible.",
-      },
-    },
-  ],
+  })),
 };
 
 const breadcrumbJsonLd = {
@@ -235,16 +243,37 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Ménage",
+      name: "Ménage & Nettoyage au Pays de Gex",
       item: "https://www.quido.fr/menage",
     },
   ],
 };
 
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.quido.fr/menage/#website",
+  url: "https://www.quido.fr/menage",
+  name: "Quido Ménage",
+  description: "Service de ménage et nettoyage premium à domicile au Pays de Gex (01). Femme de ménage de confiance, produits éco, crédit d'impôt 50%.",
+  publisher: { "@id": "https://www.quido.fr/#organization" },
+  inLanguage: "fr-FR",
+};
+
 export default function Home() {
   return (
     <>
-      {/* Schema.org JSON-LD — LocalBusiness */}
+      {/* Schema.org JSON-LD — Organization */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      {/* Schema.org JSON-LD — WebSite */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
+      {/* Schema.org JSON-LD — HousekeepingService (LocalBusiness) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
@@ -273,6 +302,32 @@ export default function Home() {
         <ProcessTimeline />
         <ProofAndBooking />
         <FAQSection />
+
+        {/* SEO Content Block — Hidden-in-plain-sight keyword-rich content for crawlers and users */}
+        <section className="bg-gray-50 py-20 lg:py-28 border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-black mb-8 tracking-tight">
+              Votre entreprise de ménage de confiance au Pays de Gex
+            </h2>
+            <div className="prose prose-gray prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
+              <p>
+                <strong>Quido Ménage</strong> est le service de <strong>ménage et nettoyage à domicile</strong> de référence dans le <strong>Pays de Gex</strong> (département de l'Ain, 01). 
+                Nous intervenons quotidiennement à <strong>Gex</strong>, <strong>Ferney-Voltaire</strong>, <strong>Divonne-les-Bains</strong>, <strong>Saint-Genis-Pouilly</strong>, <strong>Prévessin-Moëns</strong>, <strong>Thoiry</strong>, <strong>Cessy</strong>, <strong>Ornex</strong> et dans l'ensemble des communes du bassin gessien et du Grand Genève.
+              </p>
+              <p>
+                Que vous recherchiez une <strong>femme de ménage au Pays de Gex</strong>, une <strong>aide ménagère à Ferney-Voltaire</strong>, un <strong>nettoyage de fin de bail</strong> conforme aux exigences des régies suisses et françaises, ou un service de <strong>ménage Airbnb</strong> pour votre conciergerie locative — nous avons conçu une offre complète, professionnelle et entièrement agréée <strong>Services à la Personne (SAP)</strong>.
+              </p>
+              <p>
+                Chaque intervention ouvre droit au <strong>crédit d'impôt de 50%</strong> avec possibilité d'<strong>avance immédiate URSSAF</strong> : concrètement, 200€ de ménage ne vous coûtent que 100€. 
+                Nos agents d'entretien sont rigoureusement sélectionnés, déclarés, assurés en responsabilité civile professionnelle, et formés à nos protocoles de nettoyage écologique. Nous utilisons exclusivement des <strong>produits éco-responsables</strong>, sans javel ni ammoniac, pour protéger votre santé, vos enfants, vos animaux et l'environnement exceptionnel du Pays de Gex.
+              </p>
+              <p>
+                Notre différence ? <strong>Zéro turnover</strong>. La même personne de confiance intervient chez vous à chaque visite. Nos équipes travaillent à nos côtés depuis des années — elles connaissent vos exigences, votre intérieur et vos habitudes. C'est cette continuité de service qui fait de Quido l'<strong>entreprise de nettoyage</strong> la plus recommandée par les familles et les professionnels du Pays de Gex.
+              </p>
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </>

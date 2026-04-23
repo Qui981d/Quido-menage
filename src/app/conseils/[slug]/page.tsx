@@ -15,13 +15,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: article.metadata.title,
     description: article.metadata.description,
-    keywords: article.metadata.keywords,
+    alternates: {
+      canonical: `/menage/conseils/${article.slug}`,
+    },
     openGraph: {
       title: article.metadata.title,
       description: article.metadata.description,
       type: "article",
       publishedTime: article.date,
       authors: [article.author],
+      locale: "fr_FR",
+      siteName: "Quido Ménage",
+      url: `https://www.quido.fr/menage/conseils/${article.slug}`,
+      images: [
+        {
+          url: article.image,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.metadata.title,
+      description: article.metadata.description,
+      images: [article.image],
     },
   };
 }
@@ -34,44 +53,109 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
+  // Find related articles (same category, or next/prev by date)
+  const relatedArticles = articles
+    .filter((a) => a.slug !== article.slug)
+    .sort((a, b) => {
+      // Prioritize same category
+      const aSameCategory = a.category === article.category ? 1 : 0;
+      const bSameCategory = b.category === article.category ? 1 : 0;
+      if (aSameCategory !== bSameCategory) return bSameCategory - aSameCategory;
+      // Then by date (most recent first)
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    })
+    .slice(0, 3);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.metadata.title,
     description: article.metadata.description,
+    image: `https://www.quido.fr${article.image}`,
     author: {
       "@type": "Person",
       name: article.author,
     },
     datePublished: article.date,
+    dateModified: article.date,
     publisher: {
-      "@type": "LocalBusiness",
-      name: "Quido",
-      url: "https://www.quido.fr",
+      "@type": "Organization",
+      name: "Quido Ménage",
+      url: "https://www.quido.fr/menage",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.quido.fr/menage/images/logo/logo-footer-green.png",
+      },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Pays de Gex",
+        addressLocality: "Saint-Genis-Pouilly",
+        postalCode: "01630",
         addressRegion: "Ain",
-        addressCountry: "FR"
-      }
-    }
+        addressCountry: "FR",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.quido.fr/menage/conseils/${article.slug}`,
+    },
+    inLanguage: "fr-FR",
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": "https://www.quido.fr/menage/#website",
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Quido",
+        item: "https://www.quido.fr",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Ménage au Pays de Gex",
+        item: "https://www.quido.fr/menage",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Conseils & Blog",
+        item: "https://www.quido.fr/menage/conseils",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: article.title,
+        item: `https://www.quido.fr/menage/conseils/${article.slug}`,
+      },
+    ],
   };
 
   return (
     <>
       <Navbar />
       
-      {/* Schema.org JSON-LD */}
+      {/* Schema.org JSON-LD — Article */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* Schema.org JSON-LD — BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <main className="min-h-screen bg-white pt-32 pb-24">
         <article className="max-w-3xl mx-auto px-6 lg:px-8">
           
           <header className="mb-14">
-            <div className="flex items-center gap-3 mb-6">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-3 mb-6">
               <Link href="/conseils" className="text-gray-400 hover:text-black font-bold uppercase tracking-widest text-[11px] transition-colors">
                 Magazine
               </Link>
@@ -79,7 +163,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <span className="text-quido font-bold uppercase tracking-widest text-[11px]">
                 {article.category}
               </span>
-            </div>
+            </nav>
             
             <h1 
               className="font-display font-bold tracking-tight text-black leading-[1.05] mb-8"
@@ -115,7 +199,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               alt={article.title}
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 1024px"
+              sizes="(max-width: 1024px) 100vw, 768px"
               priority
             />
           </div>
@@ -127,13 +211,53 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* Call to action at the end of every article to maximize conversion */}
           <div className="mt-20 p-10 bg-gray-50 rounded-3xl border border-gray-100 text-center">
             <h3 className="font-display font-bold text-2xl text-black mb-4">Prêt à confier votre intérieur à des experts ?</h3>
-            <p className="text-gray-500 mb-8">Obtenez un devis gratuit et sans engagement en moins de 2 minutes pour nos services au Pays de Gex.</p>
+            <p className="text-gray-500 mb-8">Obtenez un devis gratuit et sans engagement en moins de 2 minutes pour nos services de ménage au Pays de Gex.</p>
             <Link href="/reservation" className="inline-flex bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors">
               Réserver un créneau
             </Link>
           </div>
 
         </article>
+
+        {/* Related Articles — Internal linking for SEO juice */}
+        {relatedArticles.length > 0 && (
+          <section className="max-w-7xl mx-auto px-6 lg:px-8 mt-24">
+            <h2 className="font-display font-bold text-2xl text-black mb-10 tracking-tight">
+              Articles connexes
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedArticles.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/conseils/${related.slug}`}
+                  className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="h-40 relative overflow-hidden bg-gray-100">
+                    <Image
+                      src={related.image}
+                      alt={related.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
+                      {related.category}
+                    </span>
+                    <h3 className="font-display font-bold text-lg text-black leading-tight group-hover:text-gray-600 transition-colors mb-3">
+                      {related.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm line-clamp-2 flex-1">{related.excerpt}</p>
+                    <span className="mt-4 text-xs font-bold text-black uppercase tracking-widest">
+                      Lire →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
       
       <Footer />

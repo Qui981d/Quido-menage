@@ -18,7 +18,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/menage/images/logo/logo-footer-green.png"
-                alt="Quido - Service de ménage premium au Pays de Gex"
+                alt="Quido Ménage — Service de ménage et nettoyage premium au Pays de Gex"
                 width={260}
                 height={90}
                 className="h-10 md:h-14 w-auto"
@@ -27,7 +27,13 @@ export default function Footer() {
             <p className="text-[13px] text-white/50 leading-relaxed max-w-[280px]">
               Service de ménage premium au Pays de Gex. Entretien régulier, nettoyage de fin de bail et interventions ponctuelles. Profitez de votre temps libre en toute sérénité.
             </p>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all mt-2">
+            <a 
+              href="https://www.instagram.com/quido.fr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Suivre Quido sur Instagram"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all mt-2"
+            >
               <Instagram size={18} />
             </a>
           </div>
@@ -37,8 +43,9 @@ export default function Footer() {
             <h4 className="font-bold text-base text-white mb-6">Services</h4>
             <ul className="space-y-4">
               <li><Link href="/#services" className="text-sm text-white/50 hover:text-white transition-colors duration-200">Ménage Régulier</Link></li>
-              <li><Link href="/#services" className="text-sm text-white/50 hover:text-white transition-colors duration-200">Deep Clean</Link></li>
+              <li><Link href="/#services" className="text-sm text-white/50 hover:text-white transition-colors duration-200">Grand Nettoyage (Deep Clean)</Link></li>
               <li><Link href="/#services" className="text-sm text-white/50 hover:text-white transition-colors duration-200">Nettoyage Fin de bail</Link></li>
+              <li><Link href="/#services" className="text-sm text-white/50 hover:text-white transition-colors duration-200">Ménage Airbnb</Link></li>
               <li><Link href="/reservation" className="text-sm text-white/50 hover:text-white transition-colors duration-200">Estimation Gratuite</Link></li>
             </ul>
           </div>
@@ -65,24 +72,24 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:0602165671" className="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors duration-200">
+                <a href="tel:+33602165671" className="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors duration-200">
                   <Phone size={15} className="text-quido shrink-0" />
                   06 02 16 56 71
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-sm text-white/50">
+                <address className="flex items-start gap-3 text-sm text-white/50 not-italic">
                   <MapPin size={15} className="text-quido shrink-0 mt-1" />
                   <span className="leading-relaxed">181 rue du Parc Jean Monnet<br/>01630 Saint-Genis-Pouilly</span>
-                </div>
+                </address>
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Cities */}
-        <div className="border-t border-white/10 py-8">
+        {/* Cities — Internal linking for SEO */}
+        <nav aria-label="Nos zones d'intervention" className="border-t border-white/10 py-8">
           <p className="text-[10px] uppercase tracking-widest text-white/40 mb-5 font-bold">
             MÉNAGE ET NETTOYAGE DANS LE PAYS DE GEX
           </p>
@@ -96,7 +103,7 @@ export default function Footer() {
               </span>
             ))}
           </div>
-        </div>
+        </nav>
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-6">

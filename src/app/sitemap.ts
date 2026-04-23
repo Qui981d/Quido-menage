@@ -5,25 +5,49 @@ import { cities } from "@/lib/cities";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.quido.fr/menage";
 
-  // Static pages
+  // Static pages with fixed dates (not new Date() which changes every build)
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: "2026-04-23",
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/reservation`,
-      lastModified: new Date(),
+      lastModified: "2026-04-01",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/conseils`,
-      lastModified: new Date(),
+      lastModified: "2026-04-04",
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: "2026-04-01",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/mentions-legales`,
+      lastModified: "2026-01-01",
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: `${baseUrl}/confidentialite`,
+      lastModified: "2026-01-01",
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: `${baseUrl}/cgu`,
+      lastModified: "2026-01-01",
+      changeFrequency: "yearly",
+      priority: 0.2,
     },
   ];
 
@@ -38,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic city pages for Local SEO
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${baseUrl}/ville/${city.slug}`,
-    lastModified: new Date(),
+    lastModified: "2026-04-23",
     changeFrequency: "weekly" as const,
     priority: 0.85,
   }));
