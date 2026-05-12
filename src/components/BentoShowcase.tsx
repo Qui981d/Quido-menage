@@ -42,7 +42,7 @@ export default function BentoShowcase() {
   };
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-white overflow-hidden">
+    <section id="services" aria-label="Services de ménage et nettoyage" className="py-24 lg:py-32 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <motion.div

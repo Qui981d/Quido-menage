@@ -17,7 +17,7 @@ export default function FAQSection({ cityName }: { cityName?: string } = {}) {
   const items = getFaqItems(cityName);
 
   return (
-    <section id="faq" className="py-28 lg:py-36 bg-white">
+    <section id="faq" aria-label="Questions fréquentes sur le ménage" className="py-28 lg:py-36 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           {/* LEFT */}

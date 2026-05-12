@@ -2,15 +2,14 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { cities } from "@/lib/cities";
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import SocialProofTicker from "@/components/SocialProofTicker";
 import LocalContextBlock from "@/components/LocalContextBlock";
 import BentoShowcase from "@/components/BentoShowcase";
-import ProcessTimeline from "@/components/ProcessTimeline";
 import FAQSection from "@/components/FAQSection";
 import { getFaqItems } from "@/lib/faq";
 import Footer from "@/components/Footer";
 import ProofAndBooking from "@/components/ProofAndBooking";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export async function generateStaticParams() {
   return cities.map((city) => ({
@@ -64,14 +63,6 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   if (!city) {
     notFound();
   }
-
-  const customHeroTitle = (
-    <>
-      MÉNAGE
-      <br />
-      À <span className="relative inline-block z-10 uppercase">{city.name}.<span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span></span>
-    </>
-  );
 
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
@@ -164,16 +155,74 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
       />
       <Navbar />
       <main>
-        <HeroSection 
-          cityName={city.name} 
-          customTitle={customHeroTitle} 
-          customSubtitle={city.heroSubtitle} 
-        />
-        <SocialProofTicker />
+        {/* 
+          SSR H1 Hero — Fully server-rendered, unique per city.
+          This is the most critical SEO element on the page.
+          NO client-side rendering, NO opacity:0, NO framer-motion.
+        */}
+        <section className="relative min-h-[70svh] flex flex-col overflow-hidden bg-white">
+          <div className="relative z-10 flex-1 flex flex-col justify-center mx-auto max-w-7xl px-6 lg:px-8 pt-32 pb-16">
+            <div className="max-w-3xl">
+              <h1
+                className="font-display font-bold tracking-[-0.05em] leading-[0.92] text-black mb-8"
+                style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+              >
+                Femme de ménage à{" "}
+                <span className="relative inline-block z-10">
+                  {city.name}
+                  <span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span>
+                </span>
+                <br />
+                <span className="text-gray-400" style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}>
+                  ({city.postalCode}) — Service premium au Pays de Gex
+                </span>
+              </h1>
+
+              <p className="text-lg text-gray-500 leading-relaxed max-w-xl mb-10">
+                {city.heroSubtitle}
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-start gap-4 mb-14">
+                <Link href="/reservation" className="btn-primary btn-pulse">
+                  Réserver un créneau à {city.name}
+                  <ArrowRight size={17} />
+                </Link>
+                <Link href="/#services" className="btn-secondary">
+                  Découvrir nos services
+                </Link>
+              </div>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap items-center gap-8">
+                <div>
+                  <p className="font-display text-2xl sm:text-3xl font-bold text-black tracking-tight">165+</p>
+                  <p className="text-sm text-gray-400 mt-0.5">foyers entretenus</p>
+                </div>
+                <div className="w-px h-8 bg-gray-200" />
+                <div>
+                  <p className="font-display text-2xl sm:text-3xl font-bold text-black tracking-tight">4.9/5</p>
+                  <p className="text-sm text-gray-400 mt-0.5">note moyenne</p>
+                </div>
+                <div className="w-px h-8 bg-gray-200" />
+                <div>
+                  <p className="font-display text-2xl sm:text-3xl font-bold text-quido tracking-tight">50%</p>
+                  <p className="text-sm text-gray-400 mt-0.5">crédit d&apos;impôt</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Unique local context content per city */}
         <LocalContextBlock city={city} />
+
+        {/* Services showcase — kept but lighter weight than homepage */}
         <BentoShowcase />
-        <ProcessTimeline />
+
+        {/* Social proof + CTA */}
         <ProofAndBooking />
+
+        {/* Localized FAQ */}
         <FAQSection cityName={city.name} />
 
         {/* SEO Content Block — Unique content per city for search engines */}

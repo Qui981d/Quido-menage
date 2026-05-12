@@ -49,6 +49,15 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ cityName, customTitle, customSubtitle }: HeroSectionProps = {}) {
+  /* ─── Default SEO-rich text content (always in the DOM for crawlers) ─── */
+  const defaultTitle = cityName
+    ? <>FEMME DE MÉNAGE<br />À <span className="relative inline-block z-10 uppercase">{cityName}.<span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span></span></>
+    : <>MÉNAGE &<br />NETTOYAGE{" "}<span className="relative inline-block z-10">À DOMICILE.<span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span></span></>;
+
+  const defaultSubtitle = cityName
+    ? `Service de ménage et nettoyage premium à ${cityName}. Personnel de confiance vérifié, produits éco-responsables, créneaux flexibles. Crédit d'impôt 50%. Entreprise agréée Services à la Personne.`
+    : "Votre femme de ménage de confiance au Pays de Gex. De Ferney-Voltaire à Divonne-les-Bains : personnel vérifié, produits éco-responsables, créneaux flexibles. Crédit d'impôt 50%.";
+
   return (
     <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-white">
       <div className="relative z-10 flex-1 flex flex-col justify-center mx-auto max-w-7xl px-6 lg:px-8 pt-32 pb-16">
@@ -56,36 +65,26 @@ export default function HeroSection({ cityName, customTitle, customSubtitle }: H
           {/* LEFT */}
           <div>
 
-            {/* SEO-optimized H1 with primary keywords */}
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className="font-display font-bold tracking-[-0.05em] leading-[0.92] text-black mb-8"
+            {/* 
+              SEO-CRITICAL: H1 is rendered with full text in the initial HTML.
+              The motion wrapper only animates the entrance but content is 
+              always present in the DOM for search engine crawlers.
+              Using animate-fade-up CSS class as fallback for non-JS.
+            */}
+            <h1
+              className="font-display font-bold tracking-[-0.05em] leading-[0.92] text-black mb-8 animate-fade-up"
               style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
             >
-              {customTitle || (
-                <>
-                  MÉNAGE &
-                  <br />
-                  NETTOYAGE{" "}
-                  <span className="relative inline-block z-10">
-                    À DOMICILE.
-                    <span className="absolute -bottom-1 -left-4 -right-4 h-[10px] bg-quido-yellow/80 -z-10 -rotate-1 origin-left"></span>
-                  </span>
-                </>
-              )}
-            </motion.h1>
+              {customTitle || defaultTitle}
+            </h1>
 
-            {/* Keyword-rich subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-lg text-gray-500 leading-relaxed max-w-md mb-10"
+            {/* Keyword-rich subtitle — also SSR visible */}
+            <p
+              className="text-lg text-gray-500 leading-relaxed max-w-md mb-10 animate-fade-up"
+              style={{ animationDelay: "0.15s" }}
             >
-              {customSubtitle || "Votre femme de ménage de confiance au Pays de Gex. De Ferney-Voltaire à Divonne-les-Bains : personnel vérifié, produits éco-responsables, créneaux flexibles. Crédit d'impôt 50%."}
-            </motion.p>
+              {customSubtitle || defaultSubtitle}
+            </p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

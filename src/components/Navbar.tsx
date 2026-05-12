@@ -44,7 +44,7 @@ export default function Navbar() {
         <nav className={`mx-auto flex max-w-7xl items-center justify-between transition-all duration-500 px-4 sm:px-6 lg:px-8 ${scrolled ? "py-3" : "py-5"}`}>
           <Link href="/" className="flex items-center group">
             <Image
-              src="/menage/images/logo/Votre texte de paragraphe.png"
+              src="/menage/images/logo/quido-menage-logo.png"
               alt="Quido - Service de ménage premium au Pays de Gex"
               width={260}
               height={90}
